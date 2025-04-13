@@ -11,10 +11,6 @@ app.register_blueprint(feedback_bp)
 @app.route('/home')
 def home():
     return render_template('home.html')
-@app.route('/feedback')
-def feedback():
-    return render_template('feedback.html')
-
 
 @app.route('/feedback')
 def feedback():
