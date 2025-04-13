@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block title %}Головна{% endblock %}
+
+{% block content %}
+<div class="container-fluid d-flex">
+    <aside>
+      <ul>
+        <li><a href="#">Гаджети</a></li>
+        <li><a href="#">Телевізори</a></li>
+        <li><a href="#">Графічні планшети</a></li>
+        <li><a href="#">Ігрові приставки</a></li>
+        <li><a href="#">Ігрові маніпулятори</a></li>
+        <li><a href="#">Планшети</a></li>
+        <li><a href="#">Про нас</a></li>
+      </ul>
+    </aside>
+    <main class="flex-grow-1 p-3">
+      <div class="gallery-grid">
+          <div class="gallery-item">
+              <a href="/products?tag=pc" class="text-decoration-none">
+                  <div class="grid-iteminner">
+                      <img src="static/img/pc2.png" class="grid-itemimg" alt="Персональні комп'ютери">
+                      <div class="grid-itemtitle">
+                          <span>Персональні комп'ютери</span>
+                      </div>
+                  </div>
+              </a>
+          </div>
+
+          <div class="gallery-item">
+              <a href="/products?tag=tv" class="text-decoration-none">
+                  <div class="grid-iteminner">
+                      <img src="static/img/tv.png" class="grid-itemimg" alt="TV+відеотехніка">
+                      <div class="grid-itemtitle">
+                          <span>TV+відеотехніка</span>
+                      </div>
+                  </div>
+              </a>
+          </div>
+
+          <div class="gallery-item">
+              <a href="/products?tag=monitor" class="text-decoration-none">
+                  <div class="grid-iteminner">
+                      <img src="static/img/Lenovo20E29w-20.png" class="grid-itemimg" alt="Монітори">
+                      <div class="grid-itemtitle">
+                          <span>Монітори</span>
+                      </div>
+                  </div>
+              </a>
+          </div>
+
+          <div class="gallery-item">
+              <a href="/products?tag=keyboard" class="text-decoration-none">
+                  <div class="grid-iteminner">
+                      <img src="static/img/key.png" class="grid-itemimg" alt="Клавіатури">
+                      <div class="grid-itemtitle">
+                          <span>Клавіатури</span>
+                      </div>
+                  </div>
+              </a>
+          </div>
+
+          <div class="gallery-item">
+              <a href="/products?tag=mouse" class="text-decoration-none">
+                  <div class="grid-iteminner">
+                      <img src="static/img/m.png" class="grid-itemimg" alt="Мишки">
+                      <div class="grid-itemtitle">
+                          <span>Мишки</span>
+                      </div>
+                  </div>
+              </a>
+          </div>
+
+          <div class="gallery-item">
+              <a href="/prducts?tag=audio" class="text-decoration-none">
+                  <div class="grid-iteminner">
+                      <img src="static/img/audio.png" class="grid-itemimg" alt="Аудіо-техніка">
+                      <div class="grid-itemtitle">
+                          <span>Аудіо-техніка</span>
+                      </div>
+                  </div>
+              </a>
+          </div>
+      </div>
+    </main>
+  </div>
+{% endblock %}
