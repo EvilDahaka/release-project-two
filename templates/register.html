@@ -22,10 +22,10 @@
             <div>
                 <input type="password" id="confirm_password" name="confirm_password" required placeholder="Підтвердіть пароль">
             </div>
-            
+
             <button type="submit">Зареєструватися</button>
             <div class="or">або</div>
-            <a href="#">Увійти</a>
+            <a href="{{ url_for('user.login') }}">Увійти</a>
         </form>
     </div>
 </body>

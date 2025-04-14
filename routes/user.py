@@ -23,6 +23,22 @@ def validate_registration_data(username, email, password, confirm_password):
         return "Паролі не співпадають."
     return None
 
+def get_current_user():
+    """
+    Функція для отримання поточного користувача з сесії.
+    Повертає дані користувача або None, якщо користувач не авторизований.
+    """
+    user_id = session.get('user_id')
+    if user_id:
+        conn = get_db_connection()
+        try:
+            cur = conn.cursor()
+            user = cur.execute('SELECT * FROM users WHERE id = ?', (user_id,)).fetchone()
+            return user
+        finally:
+            conn.close()  # Закрити з'єднання після завершення
+    return None
+
 @user_bp.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
@@ -53,6 +69,62 @@ def register():
             conn.close()  # Закрити з'єднання
 
         #print("Реєстрація успішна! Ви можете увійти в систему.")
-        #return redirect(url_for('user.login'))
+        return redirect(url_for('user.login'))
 
     return render_template('register.html')
+
+@user_bp.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        email = request.form['email']
+        password = request.form['password']
+
+        conn = get_db_connection()
+        try:
+            user = conn.execute('SELECT * FROM users WHERE email = ?', (email,)).fetchone()
+            if user:
+                stored_password = user['password'].encode('utf-8') if isinstance(user['password'], str) else user['password']
+                if bcrypt.checkpw(password.encode('utf-8'), stored_password):
+                    # Успішний вхід
+                    session['user_id'] = user['id']
+                    flash("Ви успішно увійшли.")
+                    return redirect(url_for('home'))
+            flash("Невірний email або пароль.")
+        finally:
+            conn.close()  # Закриваємо з'єднання
+    return render_template('login.html')
+
+
+@user_bp.route('/logout')
+def logout():
+    session.pop('user_id', None)  # Видаляємо user_id з сесії
+    print("Ви вийшли з системи.")
+    return redirect(url_for('home'))
+#видає none якщо не найде юзера а так видає його id 
+def auth():
+    return session.get('user_id') is not None
+
+def get_users():
+    conn = get_db_connection()
+    users = conn.execute('SELECT * FROM users').fetchall()
+    conn.close()
+    return users
+
+def get_username():
+    user_id = session.get('user_id')
+    if user_id is None:
+        return None
+    
+    conn = get_db_connection()
+    result = conn.execute('SELECT username FROM users WHERE id = ?', (user_id,)).fetchone()
+
+
+    conn.close()
+    
+    if result:
+        return result['username'] 
+    return None 
+
+def auth():
+    return session.get('user_id') is not None
+

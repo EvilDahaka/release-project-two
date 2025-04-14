@@ -16,8 +16,13 @@
     <nav>
       <a href="{{ url_for('home') }}">Головна</a>
       <a href="{{ url_for('feedback') }}">Зворотній зв'язок</a>
-      <a href="#">Ввійти</a>
+      {% if auth %}
+      <a href="{{ url_for('user.logout') }}">Вихід</a>
+      <p class="me-3 py-2 link-body-emphasis text-decoration-none" >{{ username }}</p>
+      {% else %}
+      <a href="{{ url_for('user.login') }}">Ввійти</a>
       <a href="{{ url_for('user.register') }}">Реєстрація</a>
+      {% endif %}
 
     </nav>
   </header>

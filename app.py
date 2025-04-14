@@ -1,7 +1,7 @@
 from flask import Flask, render_template, session
 from models import init_db
 from routes.feedback import feedback_bp
-from routes.user import user_bp
+from routes.user import user_bp, auth, get_username
 
 app = Flask(__name__)
 app.secret_key = 'super secret key'
@@ -9,6 +9,12 @@ app.secret_key = 'super secret key'
 app.register_blueprint(feedback_bp)
 
 app.register_blueprint(user_bp)
+
+init_db()
+
+@app.context_processor
+def inject_auth():
+    return {'auth': auth(),'username':get_username()}
 
 @app.route('/')
 @app.route('/home')
