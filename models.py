@@ -12,6 +12,27 @@ def init_db():
                     email TEXT,
                     message TEXT)
                    ''')
+
+    cursor = conn.cursor()
+    cursor.execute('''
+                CREATE TABLE IF NOT EXISTS users (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    username TEXT,
+                    email TEXT,
+                    password TEXT)
+                   ''')
+    
+    cursor=conn.cursor()
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS products (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL,
+            price REAL NOT NULL,
+            specifications TEXT,
+            image TEXT,
+            tag TEXT
+        )
+    ''')
     conn.commit()
     conn.close()
 
