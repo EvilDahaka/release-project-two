@@ -7,7 +7,6 @@ app = Flask(__name__)
 app.secret_key = 'super secret key'
 
 app.register_blueprint(feedback_bp)
-
 app.register_blueprint(user_bp)
 
 init_db()
