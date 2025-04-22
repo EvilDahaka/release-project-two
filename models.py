@@ -33,6 +33,42 @@ def init_db():
             tag TEXT
         )
     ''')
+
+    cursor = conn.cursor()
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS cart (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL,
+    name TEXT NOT NULL,
+    product_id INTEGER NOT NULL,
+    price REAL NOT NULL,
+    quantity INTEGER NOT NULL
+);
+    ''')
+
+    cursor = conn.cursor()
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS orders (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            email TEXT NOT NULL,
+            address TEXT NOT NULL,
+            total_price REAL NOT NULL,
+            status TEXT NOT NULL,
+            date TEXT NOT NULL
+        )
+    ''')
+
+    cursor = conn.cursor()
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS order_items (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            order_id INTEGER,
+            product_id INTEGER,
+            quantity INTEGER,
+            FOREIGN KEY (order_id) REFERENCES orders (id),
+            FOREIGN KEY (product_id) REFERENCES products (id)
+        )
+    ''')
     conn.commit()
     conn.close()
 
@@ -88,4 +124,35 @@ def get_current_user():
         finally:
             conn.close()
     return None
+
+def get_products():
+    conn = get_db_connection()
+    product = conn.execute("SELECT * FROM products").fetchone()
+    conn.close()
+    return product
+
+
+def get_products(id=None, tag=None, name=None):
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    query = "SELECT * FROM products WHERE 1=1"
+    params = []
+
+    if id is not None: 
+        query += " AND id = ?"
+        params.append(id)
+    if tag is not None:
+        query += " AND tag = ?"
+        params.append(tag)
+    if name is not None:
+        query += " AND name = ?"
+        params.append(name)
+
+    cursor.execute(query, params)
+    results = cursor.fetchall()
+
+    conn.close()
+
+    return results
 

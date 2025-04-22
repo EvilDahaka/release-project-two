@@ -343,3 +343,83 @@ body {
 .login-form .register-link:hover {
   background-color: #7d3c98;
 }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.card {
+  background-color: #f3e7e9;
+  border-radius: 15px;
+  width: 260px;
+  box-shadow: 0 4px 12px rgba(44, 0, 62, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s;
+
+}
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 16px rgba(44, 0, 62, 0.4);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.card_info {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 170px;
+}
+
+.card_info h1 {
+  font-size: 18px;
+  color: #2c003e;
+  margin: 0;
+}
+
+.card_text p {
+  font-size: 14px;
+  color: #555;
+}
+
+.card_inner {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card_inner h1 {
+  font-size: 16px;
+  color: #6200ea;
+  margin: 0;
+}
+
+.card_inner form button {
+  background-color: #7b1fa2;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.card_inner form button:hover {
+  background-color: #6200ea;
+}

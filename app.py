@@ -2,12 +2,15 @@ from flask import Flask, render_template, session
 from models import init_db
 from routes.feedback import feedback_bp
 from routes.user import user_bp, auth, get_username
+from routes.products import products_bp
 
 app = Flask(__name__)
 app.secret_key = 'super secret key'
 
 app.register_blueprint(feedback_bp)
 app.register_blueprint(user_bp)
+app.register_blueprint(products_bp)
+
 
 init_db()
 

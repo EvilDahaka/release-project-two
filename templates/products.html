@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Магазин{% endblock %}
+
+{% block content %}
+<h1 style="text-align: center; font-size: 32px; margin-bottom: 20px;">Магазин</h1>
+
+<div class="container">
+    {% if products %}
+        <div class="products">
+            {% for item in products %}
+            <div class="card">
+                <img src="{{ item['image'] or 'https://via.placeholder.com/300x300'}}" alt="Product Image">
+
+                <div class="card_info">
+                    <div class="card_inner">
+                        <h1>{{ item['price'] }} грн</h1>
+                        <form action="{{ url_for('products.add_to_cart', product_id=item['id']) }}" method="post">
+                            <button type="submit">В кошик</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p style="text-align: center;">Наразі немає продуктів у магазині.</p>
+    {% endif %}
+</div>
+{% endblock %}
