@@ -14,9 +14,11 @@
     <nav>
       <a href="{{ url_for('home') }}">Головна</a>
       <a href="{{ url_for('feedback') }}">Зворотній зв'язок</a>
+      <a href="{{ url_for('products.products') }}">Товари</a>
+      <a href="{{ url_for('products.cart') }}">Кошик</a>
       {% if auth %}
       <a href="{{ url_for('user.logout') }}">Вихід</a>
-      <p class="me-3 py-2 link-body-emphasis text-decoration-none" >{{ username }}</p>
+      <p class="user-name" >{{ username }}</p>
       {% else %}
       <a href="{{ url_for('user.login') }}">Ввійти</a>
       <a href="{{ url_for('user.register') }}">Реєстрація</a>
