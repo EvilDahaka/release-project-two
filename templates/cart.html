@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}Кошик{% endblock %}
+
+{% block content %}
+<div class="container py-6">
+    <h1 class="title">Ваш кошик</h1>
+    
+    {% if cart %}
+    <table class="cart-table">
+        <thead>
+            <tr>
+                <th>№</th>
+                <th>Товар</th>
+                <th>Ціна (грн)</th>
+                <th>Кількість</th>
+                <th>Всього (грн)</th>
+                <th>Дії</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in cart %}
+            <tr>
+                <td>{{ item['id'] }}</td>
+                <td>{{ item['name'] }}</td>
+                <td>{{ item['price'] }} грн</td>
+                <td>
+                    <form action="{{ url_for('products.update_quantity', product_id=item['id']) }}" method="post" class="quantity-form">
+                        <button type="submit" name="action" value="increase" class="btn btn-increase">+</button>
+                    </form>
+                    <span>{{ item['quantity'] }}</span>
+                    <form action="{{ url_for('products.update_quantity', product_id=item['id']) }}" method="post" class="quantity-form">
+                        <button type="submit" name="action" value="decrease" class="btn btn-decrease">-</button>
+                    </form>
+                </td>
+                <td>{{ item['price'] * item['quantity'] }} грн</td>
+                <td>
+                    <form action="{{ url_for('products.remove_from_cart', product_id=item['id']) }}" method="post" class="remove-form">
+                        <button type="submit" class="btn btn-remove">Видалити</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="cart-summary">
+        <p class="total-price">Загальна вартість: {{ total }} грн</p>
+        <form action="{{ url_for('products.clear_cart') }}" method="post" class="clear-cart-form">
+            <button type="submit" class="btn btn-clear">Очистити кошик</button>
+        </form>
+    </div>
+
+    <hr class="separator">
+
+    <h3 class="checkout-title">Оформлення замовлення</h3>
+    <form action="{{ url_for('products.checkout') }}" method="post" class="checkout-form">
+        <div class="input-group">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" id="email" name="email" required class="input-field">
+        </div>
+        <div class="input-group">
+            <label for="address" class="form-label">Адреса доставки:</label>
+            <input type="text" id="address" name="address" required class="input-field">
+        </div>
+        <button type="submit" class="btn btn-checkout">Оплатити замовлення</button>
+    </form>
+    
+    {% else %}
+    <p class="empty-cart-message">Ваш кошик порожній.</p>
+    <a href="{{ url_for('products.products') }}" class="btn btn-back-to-shopping">Повернутися до покупок</a>
+    {% endif %}
+</div>
+{% endblock %}

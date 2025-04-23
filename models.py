@@ -156,3 +156,29 @@ def get_products(id=None, tag=None, name=None):
 
     return results
 
+def add_order(email, address, cart):
+    conn = get_db_connection()
+    total_price = sum(item['price'] * item['quantity'] for item in cart)
+    cur = conn.cursor()
+    cur.execute('INSERT INTO orders (email, address, total_price, status, date) VALUES (?, ?, ?, ?, ?)',
+                (email, address, total_price, 'New', datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
+    order_id = cur.lastrowid
+    for item in cart:
+        cur.execute('INSERT INTO order_items (order_id, product_id, quantity) VALUES (?, ?, ?)',
+                    (order_id, item['product_id'], item['quantity']))
+    conn.commit()
+    conn.close()
+
+
+def get_orders():
+    conn = get_db_connection()
+    orders = conn.execute('SELECT * FROM orders').fetchall()
+    conn.close()
+    return orders
+
+def delete_order(order_id):
+    conn = get_db_connection()
+    conn.execute('DELETE FROM order_items WHERE order_id = ?', (order_id,))
+    conn.execute('DELETE FROM orders WHERE id = ?', (order_id,))
+    conn.commit()
+    conn.close()
