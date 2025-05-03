@@ -33,6 +33,13 @@ def seed_products():
     conn.commit()
     conn.close()
 
+'''def delete_all_products():
+    conn = get_db_connection()
+    conn.execute("DELETE FROM products")
+    conn.commit()
+    conn.close()
+'''
+
 if __name__ == '__main__':
     seed_products()
     print("Тестові продукти додано до бази даних.")
