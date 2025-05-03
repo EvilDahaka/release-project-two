@@ -22,7 +22,7 @@
         <tbody>
             {% for item in cart %}
             <tr>
-                <td>{{ item['id'] }}</td>
+                <td>{{ loop.index }}</td>
                 <td>{{ item['name'] }}</td>
                 <td>{{ item['price'] }} грн</td>
                 <td>
