@@ -87,27 +87,6 @@ def add_feedback(name, email, message):
     finally:
         conn.close()
      
-   
-
-
-
-def add_feedback(name, email, message):
-    """
-    Функція для додавання нового відгуку в базу даних.
-    Параметри:
-    - name: ім'я користувача
-    - email: email користувача
-    - message: текст відгуку
-    """
-    conn = get_db_connection()
-    try:
-        conn.execute(
-            'INSERT INTO feedback (name, email, message) VALUES (?, ?, ?)',
-            (name, email, message)
-        )
-        conn.commit()
-    finally:
-        conn.close()
 
 def get_current_user():
     """
