@@ -93,8 +93,8 @@ def get_current_user():
     Функція для отримання поточного користувача з сесії.
     Повертає дані користувача або None, якщо користувач не авторизований.
     """
-    user_id = session.get('user_id')
-    if user_id:
+    user_id = session.get('user_id') #Отримує ID користувача з сесії
+    if user_id: #Отримує ID користувача з сесії
         conn = get_db_connection()
         try:
             cur = conn.cursor()
@@ -115,10 +115,10 @@ def get_products(id=None, tag=None, name=None):
     conn = get_db_connection()
     cursor = conn.cursor()
 
-    query = "SELECT * FROM products WHERE 1=1"
-    params = []
+    query = "SELECT * FROM products WHERE 1=1" #трюк для того щоб легко додавати довідкові умови, використовуючи AND 
+    params = [] #Список значень параметрів
 
-    if id is not None: 
+    if id is not None: #Перевіряє чи було передано id
         query += " AND id = ?"
         params.append(id)
     if tag is not None:
