@@ -84,9 +84,9 @@ def login():
             user = conn.execute('SELECT * FROM users WHERE email = ?', (email,)).fetchone()
             if user:
                 stored_password = user['password'].encode('utf-8') if isinstance(user['password'], str) else user['password']
-                if bcrypt.checkpw(password.encode('utf-8'), stored_password):
+                if bcrypt.checkpw(password.encode('utf-8'), stored_password): #бере введений користувачем пароль (перетворений на байти) і порівнює його з хешованим паролем
                     # Успішний вхід
-                    session['user_id'] = user['id']
+                    session['user_id'] = user['id'] #і зберігаєм айді користувача в сесії
                     flash("Ви успішно увійшли.")
                     return redirect(url_for('home'))
             flash("Невірний email або пароль.")
@@ -110,7 +110,7 @@ def get_users():
     conn.close()
     return users
 
-def get_username():
+def get_username(): #Аналогічно get_current_user, але вибирає лише стовпець username
     user_id = session.get('user_id')
     if user_id is None:
         return None
@@ -125,6 +125,5 @@ def get_username():
         return result['username'] 
     return None 
 
-def auth():
-    return session.get('user_id') is not None
+
 
