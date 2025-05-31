@@ -1,292 +1,314 @@
+
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #ede3e3;
-    background-image: url('img/back.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    margin: 0;
-    padding: 0;
-    
-  }
+    font-family: 'Segoe UI', sans-serif; /* Використовуємо шрифт 'Segoe UI' або стандартний sans-serif */
+    background-color: #ede3e3; /* Колір фону сторінки */
+    background-image: url('img/back.png'); /* Зображення фону сторінки */
+    background-size: cover; /* Розмір фонового зображення, щоб воно покривало всю площу */
+    background-repeat: no-repeat; /* Забороняємо повторення фонового зображення */
+    background-attachment: fixed; /* Фіксуємо фонове зображення при прокручуванні */
+    margin: 0; /* Обнулюємо зовнішні відступи */
+    padding: 0; /* Обнулюємо внутрішні відступи */
+}
+
 
 .login-container,
 .register-container,
 .form-container {
-  overflow: hidden;
+    overflow: hidden; 
 }
+
 
 .user-name {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-weight: bold;
-  color: #ffffff;
-  white-space: nowrap;
-  z-index: 1000;
+    position: absolute; /* Абсолютне позиціонування відносно найближчого позиціонованого предка */
+    top: 1rem; /* Відступ від верхнього краю */
+    right: 1rem; /* Відступ від правого краю */
+    font-weight: bold; /* Жирний шрифт */
+    color: #ffffff; /* Колір тексту білий */
+    white-space: nowrap; /* Забороняємо перенесення тексту на новий рядок */
+    z-index: 1000; /* Високий z-index, щоб елемент був поверх інших */
 }
 
-  
-  header {
-    display: flex;
-    align-items: center;
-    background: linear-gradient(to right, #000046, #a4508b);
-    color: white;
-    padding: 1rem;
-    gap: 1rem;
-  }
-  
-  .logo {
-    font-size: 1.8rem;
-    font-weight: bold;
-  }
-  
- 
-  header .btn {
-    background: white;
-    border-radius: 20px;
-    padding: 0.5rem 1rem;
-    border: none;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  nav a {
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 20px;
-    padding: 0.5rem 1rem;
-    margin: 0 0.3rem;
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-  }
-  
+
+header {
+    display: flex; /* Використовуємо Flexbox для розташування елементів в ряд */
+    align-items: center; /* Вирівнюємо елементи по центру вертикально */
+    background: linear-gradient(to right, #000046, #a4508b); /* Градієнтний фон від темно-синього до пурпурового */
+    color: white; /* Колір тексту білий */
+    padding: 1rem; /* Внутрішній відступ з усіх боків */
+    gap: 1rem; /* Відстань між елементами Flexbox */
+}
+
+.logo {
+    font-size: 1.8rem; /* Розмір шрифту */
+    font-weight: bold; /* Жирний шрифт */
+}
+
+
+header .btn {
+    background: white; /* Білий фон */
+    border-radius: 20px; /* Закруглені кути */
+    padding: 0.5rem 1rem; /* Внутрішній відступ */
+    border: none; /* Без рамки */
+    font-weight: bold; /* Жирний шрифт */
+    color: #333; /* Темний колір тексту */
+}
+
+
+nav a {
+    background-color: rgba(255, 255, 255, 0.8); /* Напівпрозорий білий фон */
+    border-radius: 20px; /* Закруглені кути */
+    padding: 0.5rem 1rem; /* Внутрішній відступ */
+    margin: 0 0.3rem; /* Зовнішні горизонтальні відступи */
+    text-decoration: none; /* Без підкреслення тексту */
+    color: black; /* Чорний колір тексту */
+    font-weight: bold; /* Жирний шрифт */
+}
+
+
 aside {
-    background: linear-gradient(to bottom, #666699, #b380b3); 
-    color: white;
-    height: 100vh;
-    padding: 1rem;
-    min-width: 250px;
-    margin-left: 0;
+    background: linear-gradient(to bottom, #666699, #b380b3); /* Градієнтний фон від сіро-синього до бузкового */
+    color: white; /* Колір тексту білий */
+    height: 100vh; /* Висота 100% від висоти вікна перегляду */
+    padding: 1rem; /* Внутрішній відступ */
+    min-width: 250px; /* Мінімальна ширина бічної панелі */
+    margin-left: 0; /* Обнулюємо зовнішній лівий відступ */
 }
 
-  aside ul {
-    list-style-type: none; 
-    padding: 0; 
-    margin: 0; 
+
+aside ul {
+    list-style-type: none; /* Приховуємо маркери списку */
+    padding: 0; /* Обнулюємо внутрішній відступ */
+    margin: 0; /* Обнулюємо зовнішній відступ */
 }
+
 
 .container-fluid {
-    display: flex; 
-    padding-left: 0; 
+    display: flex; /* Використовуємо Flexbox для розташування елементів в ряд (наприклад, aside і main) */
+    padding-left: 0; /* Обнулюємо лівий внутрішній відступ */
 }
-  
- aside ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 20px;
-    display: block;
-    margin-bottom: 10px;
+
+
+aside ul li a {
+    color: white; /* Колір тексту білий */
+    text-decoration: none; /* Без підкреслення тексту */
+    font-size: 20px; /* Розмір шрифту */
+    display: block; /* Робимо посилання блочним елементом, щоб вони займали всю доступну ширину */
+    margin-bottom: 10px; /* Зовнішній нижній відступ */
 }
-  
+
+
 aside ul li a:hover {
-    color: #ddd;
-    text-decoration: none;
+    color: #ddd; /* Змінюємо колір тексту на світло-сірий */
+    text-decoration: none; /* Забороняємо підкреслення (на випадок, якщо воно з'явиться за замовчуванням) */
 }
+
 
 .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 10px;
-    padding: 20px;
+    display: grid; /* Використовуємо CSS Grid для створення адаптивної сітки */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Автоматично підлаштовуємо стовпці: мінімум 300px, максимум 1fr (одна частина вільного простору) */
+    gap: 10px; /* Відстань між елементами сітки */
+    padding: 20px; /* Внутрішній відступ з усіх боків */
 }
+
 
 .grid-iteminner {
-    position: relative;
-    overflow: hidden;
-    border-radius: 12px;
-    aspect-ratio: 16 / 9;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative; /* Встановлюємо відносне позиціонування для батьківського елемента */
+    overflow: hidden; /* Приховуємо вміст, що виходить за межі елемента */
+    border-radius: 12px; /* Закруглені кути */
+    aspect-ratio: 16 / 9; /* Встановлюємо співвідношення сторін 16:9 */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Тінь блоку */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Анімація для трансформації та тіні */
 }
 
+
 .grid-iteminner:hover {
-    transform: scale(1.03);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    transform: scale(1.03); /* Збільшуємо розмір елемента на 3% */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15); /* Змінюємо тінь для ефекту "підняття" */
 }
 
 .grid-itemimg {
-    width: 100%;
-    height: 100%;
-    display: block;
-    border-radius: 12px;
-    object-fit: cover;
+    width: 100%; /* Ширина 100% від батьківського контейнера */
+    height: 100%; /* Висота 100% від батьківського контейнера */
+    display: block; /* Робимо зображення блочним елементом */
+    border-radius: 12px; /* Закруглені кути */
+    object-fit: cover; /* Обрізаємо та масштабуємо зображення, щоб воно заповнювало контейнер */
 }
+
 
 .grid-itemtitle {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    color: white;
-    font-size: 1.2em;
-    font-weight: bold;
-    background: rgba(0, 0, 0, 0.4);
-    padding: 8px 12px;
-    border-radius: 8px;
-    transition: background 0.3s ease;
+    position: absolute; /* Абсолютне позиціонування відносно grid-iteminner */
+    bottom: 10px; /* Відступ від нижнього краю */
+    left: 10px; /* Відступ від лівого краю */
+    color: white; /* Колір тексту білий */
+    font-size: 1.2em; /* Розмір шрифту */
+    font-weight: bold; /* Жирний шрифт */
+    background: rgba(0, 0, 0, 0.4); /* Напівпрозорий чорний фон */
+    padding: 8px 12px; /* Внутрішні відступи */
+    border-radius: 8px; /* Закруглені кути */
+    transition: background 0.3s ease; /* Анімація для зміни фону */
 }
+
 
 .grid-iteminner:hover .grid-itemtitle {
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.6); /* Змінюємо фон на більш насичений чорний */
 }
 
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box; 
+    margin: 0; /* Обнулюємо зовнішні відступи */
+    padding: 0; /* Обнулюємо внутрішні відступи */
+    box-sizing: border-box; /* Встановлюємо box-sizing: border-box для легшої роботи з розмірами елементів */
 }
 
 
 .form-container {
-  display: flex;
-  align-items: center;
-  align-content: center;
-  height: 80vh;
+    display: flex; /* Використовуємо Flexbox для вирівнювання форми */
+    align-items: center; /* Вирівнюємо елементи по центру вертикально */
+    align-content: center; /* Вирівнюємо вміст по центру вертикально (для багаторядкових контейнерів Flexbox) */
+    height: 80vh; /* Висота контейнера 80% від висоти вікна перегляду */
 }
+
 
 .feedback-form {
-  flex-direction: column;
-  display: flex;
-  background-color: #e8dff5;
-  padding: 30px;
-  width: 100%;
-  margin: auto;
-  border-radius: 30px;
-  box-shadow:  0 4px 8px rgba(100, 100, 150, 0.2);
-  max-width: 450px;
-
+    flex-direction: column; /* Розташовуємо елементи форми в стовпець */
+    display: flex; /* Використовуємо Flexbox */
+    background-color: #e8dff5; /* Колір фону */
+    padding: 30px; /* Внутрішній відступ */
+    width: 100%; /* Ширина 100% від батьківського контейнера */
+    margin: auto; /* Автоматичні горизонтальні відступи для центрування форми */
+    border-radius: 30px; /* Закруглені кути */
+    box-shadow: 0 4px 8px rgba(100, 100, 150, 0.2); /* Тінь блоку */
+    max-width: 450px; /* Максимальна ширина форми */
 }
+
 
 .feedback-form h2 {
-  margin: auto;
-  margin-bottom: 20px;
+    margin: auto; /* Автоматичні горизонтальні відступи для центрування */
+    margin-bottom: 20px; /* Зовнішній нижній відступ */
 }
+
 
 .feedback-form input, textarea {
-  box-sizing: border-box;
-  border: 1px solid #caa0db;
-  border-radius: 10px;
-  padding: 8px;
-  margin-bottom: 15px;
-  width: 100%;
-
+    box-sizing: border-box; /* Встановлюємо box-sizing: border-box */
+    border: 1px solid #caa0db; /* Рамка */
+    border-radius: 10px; /* Закруглені кути */
+    padding: 8px; /* Внутрішній відступ */
+    margin-bottom: 15px; /* Зовнішній нижній відступ */
+    width: 100%; /* Ширина 100% від батьківського контейнера */
 }
+
 
 .feedback-form input:focus, textarea:focus {
-  outline: none;
-  border-color:  #9b59b6; 
-  box-shadow: 0 0 5px rgba(155, 89, 182, 0.5); 
+    outline: none; /* Приховуємо стандартний контур фокусу */
+    border-color: #9b59b6; /* Змінюємо колір рамки */
+    box-shadow: 0 0 5px rgba(155, 89, 182, 0.5); /* Додаємо тінь для ефекту фокусу */
 }
+
 
 .feedback-form button {
-  box-sizing: border-box;
-  background-color:  #9b59b6; 
-  color: white;
-  border: none;
-  padding: 12px;
-  margin-top: 10px;
-  border-radius: 10px;
-  width: 100%;
-
+    box-sizing: border-box; /* Встановлюємо box-sizing: border-box */
+    background-color: #9b59b6; /* Колір фону */
+    color: white; /* Колір тексту білий */
+    border: none; /* Без рамки */
+    padding: 12px; /* Внутрішній відступ */
+    margin-top: 10px; /* Зовнішній верхній відступ */
+    border-radius: 10px; /* Закруглені кути */
+    width: 100%; /* Ширина 100% від батьківського контейнера */
 }
+
 
 .feedback-form button:hover {
-  background-color: #7d3c98;;
+    background-color: #7d3c98; /* Змінюємо колір фону на темніший */
 }
+
 
 .register-container {
-  display: flex;
-  align-items: center;
-  align-content: center;
-  height: 80vh;
+    display: flex; /* Використовуємо Flexbox для вирівнювання форми */
+    align-items: center; /* Вирівнюємо елементи по центру вертикально */
+    align-content: center; /* Вирівнюємо вміст по центру вертикально (для багаторядкових контейнерів Flexbox) */
+    height: 80vh; /* Висота контейнера 80% від висоти вікна перегляду */
 }
+
 
 .register-form {
-  flex-direction: column;
-  display: flex;
-  background-color: #e8dff5;
-  padding: 30px;
-  width: 100%;
-  margin: auto;
-  border-radius: 30px;
-  box-shadow:  0 4px 8px rgba(100, 100, 150, 0.2);
-  max-width: 450px;
-
+    flex-direction: column; /* Розташовуємо елементи форми в стовпець */
+    display: flex; /* Використовуємо Flexbox */
+    background-color: #e8dff5; /* Колір фону */
+    padding: 30px; /* Внутрішній відступ */
+    width: 100%; /* Ширина 100% від батьківського контейнера */
+    margin: auto; /* Автоматичні горизонтальні відступи для центрування форми */
+    border-radius: 30px; /* Закруглені кути */
+    box-shadow: 0 4px 8px rgba(100, 100, 150, 0.2); /* Тінь блоку */
+    max-width: 450px; /* Максимальна ширина форми */
 }
+
 
 .register-form h2 {
-  margin: auto;
-  margin-bottom: 15px;
+    margin: auto; /* Автоматичні горизонтальні відступи для центрування */
+    margin-bottom: 15px; /* Зовнішній нижній відступ */
 }
 
-.register-form input {
-  box-sizing: border-box;
-  border: 1px solid #caa0db;
-  border-radius: 10px;
-  padding: 8px;
-  margin-bottom: 10px;
-  width: 100%;
 
+.register-form input {
+    box-sizing: border-box; /* Встановлюємо box-sizing: border-box */
+    border: 1px solid #caa0db; /* Рамка */
+    border-radius: 10px; /* Закруглені кути */
+    padding: 8px; /* Внутрішній відступ */
+    margin-bottom: 10px; /* Зовнішній нижній відступ */
+    width: 100%; /* Ширина 100% від батьківського контейнера */
 }
 
 .register-form input:focus {
-  outline: none;
-  border-color:  #9b59b6; 
-  box-shadow: 0 0 5px rgba(155, 89, 182, 0.5); 
+    outline: none; /* Приховуємо стандартний контур фокусу */
+    border-color: #9b59b6; /* Змінюємо колір рамки */
+    box-shadow: 0 0 5px rgba(155, 89, 182, 0.5); /* Додаємо тінь для ефекту фокусу */
 }
+
 
 .register-form button {
-  box-sizing: border-box;
-  background-color:  #9b59b6; 
-  color: white;
-  border: none;
-  padding: 12px;
-  margin-top: 10px;
-  border-radius: 10px;
-  width: 100%;
-
+    box-sizing: border-box; /* Встановлюємо box-sizing: border-box */
+    background-color: #9b59b6; /* Колір фону */
+    color: white; /* Колір тексту білий */
+    border: none; /* Без рамки */
+    padding: 12px; /* Внутрішній відступ */
+    margin-top: 10px; /* Зовнішній верхній відступ */
+    border-radius: 10px; /* Закруглені кути */
+    width: 100%; /* Ширина 100% від батьківського контейнера */
 }
+
 
 .register-form button:hover {
-  background-color: #7d3c98;
+    background-color: #7d3c98; /* Змінюємо колір фону на темніший */
 }
+
 
 .register-form .or {
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 14px;
-  color: #000000;
-  text-align: center;
-  padding: 10px 0;
+    font-weight: 500; /* Жирність шрифту */
+    font-size: 20px; /* Розмір шрифту */
+    line-height: 14px; /* Висота рядка */
+    color: #000000; /* Колір тексту чорний */
+    text-align: center; /* Вирівнювання тексту по центру */
+    padding: 10px 0; /* Внутрішній вертикальний відступ */
 }
+
 
 .register-form .login-buton {
-  box-sizing: border-box;
-  background-color:  #9b59b6; 
-  color: white;
-  border: none;
-  padding: 12px;
-  margin-top: 8px;
-  border-radius: 10px;
-  width: 100%;
-  text-align: center; 
-  text-decoration: none; 
+    box-sizing: border-box; /* Встановлюємо box-sizing: border-box */
+    background-color: #9b59b6; /* Колір фону */
+    color: white; /* Колір тексту білий */
+    border: none; /* Без рамки */
+    padding: 12px; /* Внутрішній відступ */
+    margin-top: 8px; /* Зовнішній верхній відступ */
+    border-radius: 10px; /* Закруглені кути */
+    width: 100%; /* Ширина 100% від батьківського контейнера */
+    text-align: center; /* Вирівнювання тексту по центру */
+    text-decoration: none; /* Без підкреслення тексту */
 }
+
 
 .register-form .login-buton:hover {
-  background-color: #7d3c98;
+    background-color: #7d3c98; /* Змінюємо колір фону на темніший */
 }
-
 
 .login-container {
   display: flex;
