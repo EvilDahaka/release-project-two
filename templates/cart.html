@@ -8,9 +8,9 @@
     
     <div class="container py-6">
     {% if cart %}
-    <table class="cart-table">
-        <thead>
-            <tr>
+    <table class="cart-table"> 
+        <thead> <!-- Заголовок таблиці -->
+            <tr> <!-- Рядок таблиці -->
                 <th>№</th>
                 <th>Товар</th>
                 <th>Ціна (грн)</th>
@@ -52,7 +52,7 @@
         </form>
     </div>
 
-    <hr class="separator">
+    <hr class="separator"> <!--лінії-->
 
     <h3 class="checkout-title">Оформлення замовлення</h3>
     <form action="{{ url_for('products.checkout') }}" method="post" class="checkout-form">
